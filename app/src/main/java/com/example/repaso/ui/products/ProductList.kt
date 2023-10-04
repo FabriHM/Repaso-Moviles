@@ -24,11 +24,10 @@ import com.skydoves.landscapist.ImageOptions
 import com.skydoves.landscapist.glide.GlideImage
 
 @Composable
-fun ProductList(products: MutableState<List<Product>>,
-                selectProduct: (String) -> Unit) {
-    val context = LocalContext.current
-    val productDao = AppDataBase.getInstance(context).productDao()
-    val productRepository = ProductRepository(productDao)
+fun ProductList(products: MutableState<List<Product>>) {
+    //val context = LocalContext.current
+    //val productDao = AppDataBase.getInstance(context).productDao()
+    //val productRepository = ProductRepository(productDao)
 
     LazyColumn {
         items(products.value) { product ->
