@@ -27,9 +27,7 @@ import com.example.repaso.repository.ProductRepository
 import com.example.repaso.utils.Result
 
 @Composable
-fun Search(
-    selectProduct: (String) -> Unit,
-) {
+fun Search() {
 
     val textQuery = remember {
         mutableStateOf("")
@@ -38,11 +36,11 @@ fun Search(
     val products = remember {
         mutableStateOf(listOf<Product>())
     }
-    val context = LocalContext.current
+    //val context = LocalContext.current
 
     Column {
         ProductSearch(textQuery, products)
-        ProductList(products, selectProduct)
+        ProductList(products)
     }
 }
 
@@ -53,8 +51,8 @@ fun ProductSearch(
     products: MutableState<List<Product>>
 ) {
     val context = LocalContext.current
-    val productDao = AppDataBase.getInstance(context).productDao()
-    val repository = ProductRepository(productDao)
+    //val productDao = AppDataBase.getInstance(context).productDao()
+    //val repository = ProductRepository(productDao)
     
     OutlinedTextField(
         modifier = Modifier
