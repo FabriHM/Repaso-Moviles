@@ -1,6 +1,5 @@
 package com.example.repaso.repository
 
-import com.example.repaso.data.local.ProductDao
 import com.example.repaso.data.model.Product
 import com.example.repaso.data.model.ProductResponse
 import com.example.repaso.data.remote.ApiClient

@@ -3,7 +3,7 @@ package com.example.repaso.data.model
 import com.google.gson.annotations.SerializedName
 
 data class ProductResponse(
-    //@SerializedName("products")
+    @SerializedName("products")
     val products: List<Product>
 )
 
