@@ -1,9 +1,11 @@
 package com.example.repaso.data.local
 
+import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 
+@Dao
 interface ProductDao {
     @Insert
     fun saveProducts(product: ProductEntity)
@@ -11,10 +13,10 @@ interface ProductDao {
     @Delete
     fun deleteProducts(product: ProductEntity)
 
-    @Query("SELECT * FROM products")
+    @Query("select * from products")
     fun getProducts(): List<ProductEntity>
 
-    @Query("SELECT * FROM products WHERE id = :id")
+    @Query("select * from products WHERE id = :id")
     fun getProductById(id: Int): ProductEntity
 
 }

@@ -1,7 +1,6 @@
 package com.example.repaso.repository
 
 import com.example.repaso.data.local.ProductDao
-import com.example.repaso.data.local.ProductEntity
 import com.example.repaso.data.model.Product
 import com.example.repaso.data.model.ProductResponse
 import com.example.repaso.data.remote.ApiClient
@@ -12,7 +11,6 @@ import retrofit2.Response
 import retrofit2.Callback
 
 class ProductRepository (
-    private val productDao: ProductDao,
     private val productService: ProductService=ApiClient.getProductService()
 ){
     fun searchByName(name: String, callback: (Result<List<Product>>)->Unit){
@@ -21,7 +19,6 @@ class ProductRepository (
             override fun onResponse(call: Call<ProductResponse>, response: Response<ProductResponse>){
                 if(response.isSuccessful){
                     try {
-                        val products = response.body()!!.products
                         callback(Result.Success(response.body()!!.products))
 
                     }catch (e: Exception){

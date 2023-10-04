@@ -8,11 +8,11 @@ object ApiClient {
     private var productService: ProductService?=null
 
     fun getProductService(): ProductService {
-           val retrofit = Retrofit.Builder()
-               .baseUrl(BASE_URL)
-               .addConverterFactory(GsonConverterFactory.create())
-               .build()
-              productService = retrofit.create(ProductService::class.java)
+        val retrofit = Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+        productService = retrofit.create(ProductService::class.java)
         return productService as ProductService
     }
 }

@@ -21,7 +21,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
-import com.example.repaso.data.local.AppDataBase
 import com.example.repaso.data.model.Product
 import com.example.repaso.repository.ProductRepository
 import com.example.repaso.utils.Result
@@ -36,7 +35,6 @@ fun Search() {
     val products = remember {
         mutableStateOf(listOf<Product>())
     }
-    //val context = LocalContext.current
 
     Column {
         ProductSearch(textQuery, products)
@@ -52,7 +50,7 @@ fun ProductSearch(
 ) {
     val context = LocalContext.current
     //val productDao = AppDataBase.getInstance(context).productDao()
-    //val repository = ProductRepository(productDao)
+    val repository = ProductRepository()
     
     OutlinedTextField(
         modifier = Modifier
